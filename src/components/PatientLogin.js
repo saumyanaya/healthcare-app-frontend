@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const PatientLogin = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
@@ -11,11 +11,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/login", formData);
-      localStorage.setItem("token", res.data.token);
+      const response = await axios.post(
+        "http://localhost:5000/api/patients/login",
+        formData
+      );
+      localStorage.setItem("token", response.data.token);
       alert("Login successful");
     } catch (error) {
-      console.error(error.response.data.msg);
+      alert("Error logging in");
     }
   };
 
@@ -26,16 +29,18 @@ const Login = () => {
         name="email"
         placeholder="Email"
         onChange={handleChange}
+        required
       />
       <input
         type="password"
         name="password"
         placeholder="Password"
         onChange={handleChange}
+        required
       />
       <button type="submit">Login</button>
     </form>
   );
 };
 
-export default Login;
+export default PatientLogin;

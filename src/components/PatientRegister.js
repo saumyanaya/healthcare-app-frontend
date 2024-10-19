@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Register = () => {
+const PatientRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,10 +15,10 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/register", formData);
-      alert(res.data.msg);
+      await axios.post("http://localhost:5000/api/patients/register", formData);
+      alert("Registration successful");
     } catch (error) {
-      console.error(error.response.data.msg);
+      alert("Error registering patient");
     }
   };
 
@@ -29,22 +29,25 @@ const Register = () => {
         name="name"
         placeholder="Name"
         onChange={handleChange}
+        required
       />
       <input
         type="email"
         name="email"
         placeholder="Email"
         onChange={handleChange}
+        required
       />
       <input
         type="password"
         name="password"
         placeholder="Password"
         onChange={handleChange}
+        required
       />
       <button type="submit">Register</button>
     </form>
   );
 };
 
-export default Register;
+export default PatientRegister;

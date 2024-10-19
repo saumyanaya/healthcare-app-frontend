@@ -1,13 +1,18 @@
 // src/index.js
-import React from "react";
-import { createRoot } from "react-dom/client"; // Import createRoot
-import App from "./App"; // Ensure the path is correct
-import "./index.css"; // If you have a CSS file
+import axios from "axios";
 
-const container = document.getElementById("root");
-const root = createRoot(container); // Create a root.
-root.render(
+// Set the default base URL for Axios
+axios.defaults.baseURL = "http://localhost:5000/api";
+
+// Other imports
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
