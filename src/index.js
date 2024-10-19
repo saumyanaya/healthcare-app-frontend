@@ -1,18 +1,13 @@
-// src/index.js
-import axios from "axios";
-
-// Set the default base URL for Axios
-axios.defaults.baseURL = "http://localhost:5000/api";
-
-// Other imports
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./index.css";
 
-ReactDOM.render(
+// Create a root using the createRoot() method
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Render the application
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

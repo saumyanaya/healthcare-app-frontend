@@ -7,7 +7,7 @@ import "./App.css";
 const App = () => {
   return (
     <div>
-      <h1>Healthcare Management Systems</h1>
+      <h1>Quantum Doctors</h1>
       <PatientRegister />
       <PatientLogin />
     </div>

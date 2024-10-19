@@ -45,6 +45,20 @@ const PatientRegister = () => {
         onChange={handleChange}
         required
       />
+      <input
+        type="password"
+        name="password"
+        placeholder="Confirm Password"
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Contact"
+        onChange={handleChange}
+        required
+      />
       <button type="submit">Register</button>
     </form>
   );
